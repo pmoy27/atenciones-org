@@ -20,6 +20,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/atenciones', [PersonasController::class, 'index'])->name('personas.index');
     Route::get('/registro', [PersonasController::class, 'create'])->name('personas.create');
+    Route::post('/personas', [PersonasController::class, 'store'])->name('personas.store');
 });
 
 require __DIR__ . '/auth.php';

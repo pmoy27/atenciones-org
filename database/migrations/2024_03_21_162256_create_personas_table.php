@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string('rut');
             $table->string('telefono');
             $table->string('direccion');
+            $table->date('fecha_nacimiento');
+            $table->integer('edad');
+            $table->string('sector');
+            $table->string('sexo');
             $table->timestamps();
         });
     }

@@ -28,7 +28,17 @@ class PersonasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $personas = new Personas;
+        $personas->nombres = $request->input('nombres');
+        $personas->apellidos = $request->input('apellidos');
+        $personas->rut = $request->input('rut');
+        $personas->direccion = $request->input('direccion');
+        $personas->sector = $request->input('sector');
+        $personas->telefono = $request->input('telefono');
+        $personas->fecha_nacimiento = $request->input('fecha_nacimiento');
+        $personas->sexo = $request->input('sexo');
+        $personas->save();
+        return redirect()->back();
     }
 
     /**
