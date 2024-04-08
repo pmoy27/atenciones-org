@@ -3,7 +3,7 @@
 <div class="p-4 sm:ml-64  h-full bg-slate-50">
     <div class="flex justify-between items-center">
         <h1 class="text-xl uppercase">Listado de Usuarios</h1>
-        <a href="/registro" class="p-2 bg-purple-600 text-xs text-white rounded-sm uppercase">Agregar Nuevo Usuario</a>
+        <a href="{{ route('personas.create') }}" class="p-2 bg-purple-600 text-xs text-white rounded-sm uppercase">Agregar Nuevo Usuario</a>
     </div>
     <div>
 
@@ -39,44 +39,69 @@
                         <th scope="col" class="px-3 py-2  uppercase">
                             Rut
                         </th>
+                        <th scope="col" class="px-3 py-2  uppercase">
+                            Sector
+                        </th>
                         <th scope="col" class="px-3 py-2 uppercase">
-                            Price
+                            Acciones
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-
+                    @foreach ($personas as $personals )
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-3 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Microsoft Surface Pro
-                        </th>
-                        <td class="px-3 py-2">
-                            White
+                        <td class="px-3 py-2 uppercase">
+                            {{$personals->nombres}}
                         </td>
-                        <td class="px-3 py-2">
-                            Laptop PC
+                        <td class="px-3 py-2 uppercase">
+                            {{$personals->apellidos}}
                         </td>
-                        <td class="px-3 py-2">
-                            $1999
+                        <td class="px-3 py-2 uppercase">
+                            {{$personals->rut}}
                         </td>
+                        <td class="px-3 py-2 uppercase">
+                            {{$personals->sector}}
+                        </td>
+                        <td class="px-3 py-2 flex gap-1">
+                            <a data-tooltip-target="detalle{{$personals->id}}" class="border border-blue-500 p-1 " href="/detalle/{{$personals->id}}"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" class="text-blue-500" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-eye">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                                    <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+                                </svg>
+
+                            </a>
+                            <a data-tooltip-target="eliminar{{$personals->id}}" class="border border-blue-500 p-1 " href=""><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" class="text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-trash-x">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M4 7h16" />
+                                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                    <path d="M10 12l4 4m0 -4l-4 4" />
+                                </svg></a>
+                        </td>
+
                     </tr>
-                    <tr class="bg-white dark:bg-gray-800">
-                        <th scope="row" class="px-3 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Magic Mouse 2
-                        </th>
-                        <td class="px-3 py-2">
-                            Black
-                        </td>
-                        <td class="px-3 py-2">
-                            Accessories
-                        </td>
-                        <td class="px-3 py-2">
-                            $99
-                        </td>
-                    </tr>
+                    <div id="detalle{{$personals->id}}" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-600 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                        Detalle
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                    <div id="eliminar{{$personals->id}}" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-600 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                        Eliminar
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                    @endforeach
                 </tbody>
             </table>
         </div>
 
     </div>
 </div>
+
+@if(session('success'))
+<script>
+    Swal.fire({
+        title: "Registrado!",
+        text: "Atención registrada correctamente!",
+        icon: "success"
+    });
+</script>
+@endif

@@ -7,7 +7,7 @@
     <div class="flex gap-20 m-auto pl-10">
         <div class="flex items-center justify-between gap-5 w-[270px] p-6 bg-white border border-gray-200 rounded-sm shadow">
             <div class="flex flex-col">
-                <span class="text-[18px]">10</span>
+                <span class="text-[18px]">0</span>
                 <span class="uppercase text-[11px] text-gray-500">Atenciones totales</span>
             </div>
 
@@ -79,7 +79,7 @@
         </div>
         <div class="flex items-center justify-between gap-5 w-[270px] p-6 bg-white border border-gray-200 rounded-sm shadow">
             <div class="flex flex-col">
-                <span class="text-[18px]">10</span>
+                <span class="text-[18px]">{{ $totalPersonas }}</span>
                 <span class="uppercase text-[11px] text-gray-500">Usuarios registrados</span>
             </div>
 

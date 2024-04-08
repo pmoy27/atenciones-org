@@ -44,4 +44,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function atenciones()
+    {
+        return $this->hasMany(Atenciones::class, 'id_usuario');
+    }
 }

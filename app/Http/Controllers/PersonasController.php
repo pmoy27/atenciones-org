@@ -12,7 +12,15 @@ class PersonasController extends Controller
      */
     public function index()
     {
-        return view('personas.index');
+
+        $personas = Personas::all();
+        return view('personas.index', compact('personas'));
+    }
+    public function verDashboar()
+    {
+
+        $totalPersonas = Personas::count();
+        return view('dashboard', ['totalPersonas' => $totalPersonas]);
     }
 
     /**
@@ -38,7 +46,8 @@ class PersonasController extends Controller
         $personas->fecha_nacimiento = $request->input('fecha_nacimiento');
         $personas->sexo = $request->input('sexo');
         $personas->save();
-        return redirect()->back();
+
+        return redirect()->back()->with('success', 'success');
     }
 
     /**
