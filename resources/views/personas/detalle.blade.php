@@ -1,7 +1,7 @@
 @include('menu.menu')
 
-<div class="p-4 sm:ml-64  h-full bg-slate-50">
-    <div class="mb-7 flex justify-between item-center">
+<div class="p-4 lg:ml-64  h-full bg-slate-50">
+    <div class="mb-7 flex flex-col gap-3 lg:flex-row justify-between  item-center ">
         <nav class="flex" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                 <li class="inline-flex items-center">
@@ -23,10 +23,10 @@
                 </li>
             </ol>
         </nav>
-        <a href="/crear-atencion/{{$personas->id}}" class="cursor-pointer p-2 bg-[#12478a] text-xs text-white rounded-sm uppercase">Agregar Atención</a>
+        <a data-modal-target="modal-crear" data-modal-toggle="modal-crear" class="cursor-pointer p-2 bg-[#12478a] text-center text-xs text-white rounded-sm uppercase">Agregar Atención</a>
 
     </div>
-    <section class="flex justify-between">
+    <section class="flex justify-between  ">
         <div class="border w-[520px] bg-white shadow-md p-4">
             <div class="flex justify-between ">
                 <h1 class="mb-3  uppercase">Información Personal</h1>
@@ -73,7 +73,10 @@
                     <span class="text-xs text-gray-600 uppercase">Sector</span>
                     <label class="uppercase font-semibold">{{$personas->sector}}</label>
                 </div>
-
+                <div class="flex flex-col col-span-2 sm:col-span-2">
+                    <span class="text-xs text-gray-600 uppercase">Organización</span>
+                    <label class="uppercase font-semibold">{{ $nombre_organizacion }}</label>
+                </div>
             </div>
 
         </div>
@@ -184,9 +187,17 @@
             </tbody>
     </div>
 </div>
+@include('atenciones.create')
 
-
-
+@if(session('agregado'))
+<script>
+    Swal.fire({
+        title: "Registrado!",
+        text: "Atención registrada correctamente!",
+        icon: "success"
+    });
+</script>
+@endif
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 @if(session('success'))
 <script>

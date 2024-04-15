@@ -1,13 +1,13 @@
 @include('menu.menu')
 
-<div class="p-4 sm:ml-64  h-full bg-slate-50">
+<div class="p-4 lg:ml-64  h-full bg-slate-50">
     <div class="mb-5">
         <span class="text-2xl font-semibold uppercase">dashboard</span>
     </div>
-    <div class="flex gap-20 m-auto pl-10">
-        <div class="flex items-center justify-between gap-5 w-[270px] p-6 bg-white border border-gray-200 rounded-sm shadow">
+    <div class="flex flex-col lg:flex-row gap-10 lg:gap-20 m-auto pl-10">
+        <div class="flex items-center justify-between gap-5 lg:w-[270px] w-[100%vw] p-6 bg-white border border-gray-200 rounded-sm shadow">
             <div class="flex flex-col">
-                <span class="text-[18px]">0</span>
+                <span class="text-[18px]">{{$totalAtenciones}}</span>
                 <span class="uppercase text-[11px] text-gray-500">Atenciones totales</span>
             </div>
 
@@ -22,7 +22,7 @@
             </svg>
 
         </div>
-        <div class="flex items-center justify-between gap-5 w-[270px] p-6 bg-white border border-gray-200 rounded-sm shadow">
+        <div class="flex items-center justify-between gap-5 lg:w-[270px] w-[100%vw] p-6 bg-white border border-gray-200 rounded-sm shadow">
             <div class="flex flex-col">
                 <span class="text-[18px]">10</span>
                 <span class="uppercase text-[11px] text-gray-500">Atenciones del dia</span>
@@ -39,7 +39,7 @@
             </svg>
 
         </div>
-        <div class="flex items-center justify-between gap-5 w-[270px] p-6 bg-white border border-gray-200 rounded-sm shadow">
+        <div class="flex items-center justify-between gap-5 lg:w-[270px] w-[100%vw] p-6 bg-white border border-gray-200 rounded-sm shadow">
             <div class="flex flex-col">
                 <span class="text-[18px]">10</span>
                 <span class="uppercase text-[11px] text-gray-500">Atenciones personales</span>
@@ -59,8 +59,8 @@
 
 
     </div>
-    <div class="flex gap-20 mt-5 pl-10">
-        <div class="flex items-center justify-between gap-5 w-[270px] p-6 bg-white border border-gray-200 rounded-sm shadow">
+    <div class="flex flex-col lg:flex-row gap-10 lg:gap-20 mt-5 pl-10">
+        <div class="flex items-center justify-between gap-5 lg:w-[270px] w-[100%vw] p-6 bg-white border border-gray-200 rounded-sm shadow">
             <div class="flex flex-col">
                 <span class="text-[18px]">10</span>
                 <span class="uppercase text-[11px] text-gray-500">Atenciones personales</span>
@@ -77,7 +77,7 @@
             </svg>
 
         </div>
-        <div class="flex items-center justify-between gap-5 w-[270px] p-6 bg-white border border-gray-200 rounded-sm shadow">
+        <div class="flex items-center justify-between gap-5 lg:w-[270px] w-[100%vw] p-6 bg-white border border-gray-200 rounded-sm shadow">
             <div class="flex flex-col">
                 <span class="text-[18px]">{{ $totalPersonas }}</span>
                 <span class="uppercase text-[11px] text-gray-500">Usuarios registrados</span>

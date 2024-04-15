@@ -15,13 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('nombres');
             $table->string('apellidos');
-            $table->string('rut');
-            $table->string('telefono');
-            $table->string('direccion');
+            $table->string('rut')->unique(); // Asumiendo que el rut debe ser único
+            $table->string('telefono')->nullable();
+            $table->string('direccion')->nullable();
             $table->date('fecha_nacimiento');
-            $table->integer('edad');
+            $table->integer('edad')->nullable();
             $table->string('sector');
-            $table->string('sexo');
+            $table->enum('sexo', ['MASCULINO', 'FEMENINO', 'Otro']);
+            $table->unsignedBigInteger('id_organizacion')->nullable();
+            $table->foreign('id_organizacion')->references('id')->on('organizacions');
             $table->timestamps();
         });
     }

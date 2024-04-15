@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Atenciones;
+use App\Models\Organizacion;
 use Illuminate\Http\Request;
 use App\Models\Personas;
 use App\Models\Tipos;
@@ -56,25 +57,28 @@ class AtencionesController extends Controller
         $atenciones->save();
 
         // Redireccionamos a la URL guardada
-        return redirect()->back();
+        return redirect()->back()->with('agregado', 'agregado');
     }
     public function detalle($id_persona)
     {
         // Buscar la persona por ID
-        $personas = Personas::find($id_persona);
+        $personas = Personas::with('organizacion')->find($id_persona);
+        $id_usuario = auth()->id();
+        $tipos_atencion = Tipos::pluck('nombre', 'id')->toArray();
 
         // Verificar que la persona exista
         if (!$personas) {
             // Abortar con un error 404
             abort(404);
         }
-
-        // Cargar la relación 'atenciones' con sus relaciones 'usuario' y 'tipo'
-        $personas->load('atenciones.usuario', 'atenciones.tipos');
-
+        // Verificar si la relación 'organizacion' está presente y obtener el nombre
+        $nombre_organizacion = ($personas->organizacion) ? $personas->organizacion->nombre : 'Sin organización';
         // Devolver la vista con los datos necesarios
         return view('personas.detalle', [
             'personas' => $personas,
+            'id_usuario' => $id_usuario,
+            'tipos_atencion' => $tipos_atencion,
+            'nombre_organizacion' => $nombre_organizacion,
         ]);
     }
     /**

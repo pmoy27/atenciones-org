@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Atenciones;
 use App\Models\Personas;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,8 @@ class PersonasController extends Controller
     {
 
         $totalPersonas = Personas::count();
-        return view('dashboard', ['totalPersonas' => $totalPersonas]);
+        $totalAtenciones = Atenciones::count();
+        return view('dashboard', ['totalPersonas' => $totalPersonas], ['totalAtenciones' => $totalAtenciones]);
     }
 
     /**
@@ -36,6 +38,14 @@ class PersonasController extends Controller
      */
     public function store(Request $request)
     {
+        $existingPersona = Personas::where('rut', $request->input('rut'))->first();
+
+        if ($existingPersona) {
+            // Si ya existe una persona con el mismo rut, mostrar un mensaje de error
+            return redirect()->back()->with('error', 'error');
+        }
+
+        // Si no existe una persona con el mismo rut, crear y guardar la nueva persona
         $personas = new Personas;
         $personas->nombres = $request->input('nombres');
         $personas->apellidos = $request->input('apellidos');

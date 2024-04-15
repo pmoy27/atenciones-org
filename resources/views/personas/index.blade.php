@@ -1,6 +1,8 @@
 @include('menu.menu')
 
-<div class="p-4 sm:ml-64  h-full bg-slate-50">
+
+
+<div class="p-4 lg:ml-64  h-full bg-slate-50">
     <div class="flex justify-between items-center">
         <h1 class="text-xl uppercase">Listado de Usuarios</h1>
         <a href="{{ route('personas.create') }}" class="p-2 bg-purple-600 text-xs text-white rounded-sm uppercase">Agregar Nuevo Usuario</a>
@@ -94,7 +96,26 @@
         </div>
 
     </div>
+    <table id="myTable" class="display">
+        <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Row 1 Data 1</td>
+                <td>Row 1 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 2 Data 1</td>
+                <td>Row 2 Data 2</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
+
 
 @if(session('success'))
 <script>
@@ -105,3 +126,9 @@
     });
 </script>
 @endif
+
+<script>
+    $(document).ready(function() {
+        $('#miTabla').DataTable();
+    });
+</script>

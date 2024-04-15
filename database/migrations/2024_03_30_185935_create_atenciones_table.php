@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('atenciones', function (Blueprint $table) {
             $table->id();
-            $table->string('detalle_atencion');
+            $table->string('detalle_atencion')->nullable();
             $table->date('fecha_antencion');
             $table->unsignedBigInteger('id_usuario');
             $table->foreign('id_usuario')->references('id')->on('users');
