@@ -59,28 +59,7 @@ class AtencionesController extends Controller
         // Redireccionamos a la URL guardada
         return redirect()->back()->with('agregado', 'agregado');
     }
-    public function detalle($id_persona)
-    {
-        // Buscar la persona por ID
-        $personas = Personas::with('organizacion')->find($id_persona);
-        $id_usuario = auth()->id();
-        $tipos_atencion = Tipos::pluck('nombre', 'id')->toArray();
 
-        // Verificar que la persona exista
-        if (!$personas) {
-            // Abortar con un error 404
-            abort(404);
-        }
-        // Verificar si la relación 'organizacion' está presente y obtener el nombre
-        $nombre_organizacion = ($personas->organizacion) ? $personas->organizacion->nombre : 'Sin organización';
-        // Devolver la vista con los datos necesarios
-        return view('personas.detalle', [
-            'personas' => $personas,
-            'id_usuario' => $id_usuario,
-            'tipos_atencion' => $tipos_atencion,
-            'nombre_organizacion' => $nombre_organizacion,
-        ]);
-    }
     /**
      * Display the specified resource.
      */

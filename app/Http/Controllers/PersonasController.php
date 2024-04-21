@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Atenciones;
+use App\Models\Organizacion;
 use App\Models\Personas;
 use Illuminate\Http\Request;
+use App\Models\Tipos;
 
 class PersonasController extends Controller
 {
@@ -19,10 +21,15 @@ class PersonasController extends Controller
     }
     public function verDashboar()
     {
-
         $totalPersonas = Personas::count();
         $totalAtenciones = Atenciones::count();
-        return view('dashboard', ['totalPersonas' => $totalPersonas], ['totalAtenciones' => $totalAtenciones]);
+        $totalOrg = Organizacion::count();
+
+        return view('dashboard', [
+            'totalPersonas' => $totalPersonas,
+            'totalAtenciones' => $totalAtenciones,
+            'totalOrg' => $totalOrg
+        ]);
     }
 
     /**
@@ -30,7 +37,11 @@ class PersonasController extends Controller
      */
     public function create()
     {
-        return view('personas.create');
+        $organizacion = Organizacion::pluck('nombre', 'id')->toArray();
+
+        return view('personas.create', [
+            'organizacion' => $organizacion,
+        ]);
     }
 
     /**
@@ -55,11 +66,33 @@ class PersonasController extends Controller
         $personas->telefono = $request->input('telefono');
         $personas->fecha_nacimiento = $request->input('fecha_nacimiento');
         $personas->sexo = $request->input('sexo');
+        $personas->id_organizacion = $request->input('organizacion');
         $personas->save();
 
         return redirect()->back()->with('success', 'success');
     }
+    public function detalle($id_persona)
+    {
+        // Buscar la persona por ID
+        $personas = Personas::with('organizacion')->find($id_persona);
+        $id_usuario = auth()->id();
+        $tipos_atencion = Tipos::pluck('nombre', 'id')->toArray();
 
+        // Verificar que la persona exista
+        if (!$personas) {
+            // Abortar con un error 404
+            abort(404);
+        }
+        // Verificar si la relación 'organizacion' está presente y obtener el nombre
+        $nombre_organizacion = ($personas->organizacion) ? $personas->organizacion->nombre : 'Sin organización';
+        // Devolver la vista con los datos necesarios
+        return view('personas.detalle', [
+            'personas' => $personas,
+            'id_usuario' => $id_usuario,
+            'tipos_atencion' => $tipos_atencion,
+            'nombre_organizacion' => $nombre_organizacion,
+        ]);
+    }
     /**
      * Display the specified resource.
      */

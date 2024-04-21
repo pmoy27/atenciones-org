@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Directiva;
+use App\Models\Organizacion;
 use Illuminate\Http\Request;
 
 class DirectivaController extends Controller
@@ -20,7 +21,29 @@ class DirectivaController extends Controller
      */
     public function create()
     {
-        //
+    }
+    public function agregarDirectiva(Request $request)
+    {
+        $idOrganizacion = $request->input('id_organizacion');
+        // Buscar la directiva actual y actualizar su estado
+        $directivaActual = Directiva::where('id_organizacion', $idOrganizacion)
+            ->where('estado', 'A')
+            ->first();
+
+        if ($directivaActual) {
+            $directivaActual->update(['estado' => 'N', 'fecha_cambio' => $request->input('fecha_cambio')]); // Cambiar el estado a "inactivo"
+        }
+
+        // Agregar la nueva directiva
+        $nuevaDirectiva = new Directiva();
+        $nuevaDirectiva->id_organizacion = $idOrganizacion;
+        $nuevaDirectiva->integrantes = $request->input('integrantes');
+        $nuevaDirectiva->fecha_termino_directiva = $request->input('fecha_termino_directiva');
+        $nuevaDirectiva->estado = 'A';
+        $nuevaDirectiva->id_vigencia = $request->input('id_vigencia');
+        $nuevaDirectiva->save();
+
+        return redirect()->back()->with('success', 'Directiva agregada exitosamente.');
     }
 
     /**

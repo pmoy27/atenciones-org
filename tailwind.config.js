@@ -8,6 +8,9 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         "./node_modules/flowbite/**/*.js",
+        './app/Http/Livewire/**/*Table.php', 
+        './vendor/power-components/livewire-powergrid/resources/views/**/*.php',
+        './vendor/power-components/livewire-powergrid/src/Themes/Tailwind.php'
     ],
 
     theme: {

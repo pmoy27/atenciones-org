@@ -3,7 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PersonasController;
 use App\Http\Controllers\AtencionesController;
+use App\Http\Controllers\DirectivaController;
+use App\Http\Controllers\OrganizacionController;
 use App\Models\Atenciones;
+use App\Models\Organizacion;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -24,8 +27,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/personas', [PersonasController::class, 'store'])->name('personas.store');
     Route::post('/registro-atencion', [AtencionesController::class, 'store'])->name('atenciones.store');
     Route::delete('/atencion/{id}', [AtencionesController::class, 'destroy'])->name('atenciones.delete');
-    Route::get('/detalle/{id}', [AtencionesController::class, 'detalle'])->name('personas.detalle');
+    Route::get('/detalle/{id}', [PersonasController::class, 'detalle'])->name('personas.detalle');
+    Route::get('/organizaciones', [OrganizacionController::class, 'index'])->name('organizaciones.index');
+    Route::get('/detalle-org/{id}', [OrganizacionController::class, 'detalle'])->name('organizaciones.detalle');
     Route::get('/crear-atencion/{id_persona}', [AtencionesController::class, 'create'])->name('atenciones.create');
+    Route::post('/registro-directiva', [DirectivaController::class, 'agregarDirectiva'])->name('directiva.agregarDirectiva');
 });
 
 require __DIR__ . '/auth.php';

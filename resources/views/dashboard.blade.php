@@ -62,8 +62,8 @@
     <div class="flex flex-col lg:flex-row gap-10 lg:gap-20 mt-5 pl-10">
         <div class="flex items-center justify-between gap-5 lg:w-[270px] w-[100%vw] p-6 bg-white border border-gray-200 rounded-sm shadow">
             <div class="flex flex-col">
-                <span class="text-[18px]">10</span>
-                <span class="uppercase text-[11px] text-gray-500">Atenciones personales</span>
+                <span class="text-[18px]">{{ $totalOrg }}</span>
+                <span class="uppercase text-[11px] text-gray-500">Organizaciones</span>
             </div>
 
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="text-[#12478a]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-hours-24">

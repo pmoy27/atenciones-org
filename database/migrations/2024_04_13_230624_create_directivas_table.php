@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('directivas', function (Blueprint $table) {
             $table->id();
             $table->string('integrantes');
-            $table->date('fecha_termino_directiva');
+            $table->date('fecha_termino_directiva')->nullable();
             $table->char('estado');
             $table->date('fecha_cambio')->nullable();
             $table->unsignedBigInteger('id_vigencia');
