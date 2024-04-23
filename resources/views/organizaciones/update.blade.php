@@ -16,24 +16,24 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form class="p-4 md:p-5">
+            <form class="p-4 md:p-5 " action="{{route('organizaciones.update',$organizacion->id)}}" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
                 <div class="grid gap-4 mb-4 grid-cols-2">
+                    <input type="hidden" value="{{$organizacion->id }}">
                     <div class="col-span-2">
                         <label for="name" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">NOMBRE</label>
                         <input type="text" name="nombre" id="nombre" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block" value="{{$organizacion->nombre}}" required="">
                     </div>
                     <div class="col-span-2 sm:col-span-1">
                         <label for="price" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">RUT</label>
-                        <input type="text" name="rut" id="rut" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block" required="">
+                        <input type="text" name="rut" id="rut" value="{{$organizacion->rut}}" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block" required="">
                     </div>
                     <div class="col-span-2 sm:col-span-1">
                         <label for="category" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Tipo de organización</label>
-                        <select id="category" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block">
-                            <option selected="">{{$organizacion->Tipo_Organizacion->tipo_nombre }}</option>
-                            <option value="TV">TV/Monitors</option>
-                            <option value="PC">PC</option>
-                            <option value="GA">Gaming/Console</option>
-                            <option value="PH">Phones</option>
+                        <select id="id_tipo" name="id_tipo" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block">
+                            <option id="id_tipo" name="id_tipo" value="{{$organizacion->Tipo_Organizacion->id }}">{{$organizacion->Tipo_Organizacion->tipo_nombre }}</option>
+
                         </select>
                     </div>
                     <div class="col-span-2 sm:col-span-1">
@@ -42,11 +42,11 @@
                     </div>
                     <div class="col-span-2 sm:col-span-1">
                         <label for="price" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">fecha concesión</label>
-                        <input type="date" name="rut" id="rut" value="{{$organizacion->fecha_concesion}}" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block" required="">
+                        <input type="date" name="fecha_concesion" id="fecha_concesion" value="{{$organizacion->fecha_concesion}}" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block" required="">
                     </div>
                     <div class="col-span-2 sm:col-span-1">
                         <label for="price" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">N° Registro</label>
-                        <input type="text" name="n_inscripcion_RC" id="rol_municipal" value="{{$organizacion->n_inscripcion_RC}}" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block" required="">
+                        <input type="text" name="n_inscripcion_RC" id="n_inscripcion_RC" value="{{$organizacion->n_inscripcion_RC}}" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block" required="">
                     </div>
                     <div class="col-span-2 sm:col-span-1">
                         <label for="price" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Estatuto</label>
@@ -54,7 +54,7 @@
                     </div>
                     <div class="col-span-2">
                         <label for="description" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Lugar de funcionamiento</label>
-                        <textarea id="description" rows="4" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block">{{$organizacion->lugar_funcionamiento}}</textarea>
+                        <textarea id="lugar_funcionamiento" name="lugar_funcionamiento" rows="4" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block">{{$organizacion->lugar_funcionamiento}}</textarea>
                     </div>
                 </div>
                 <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">

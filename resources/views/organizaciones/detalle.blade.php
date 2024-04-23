@@ -2,7 +2,7 @@
 @livewireScripts
 <div class="p-4 lg:ml-64  h-full bg-slate-50">
 
-    <section class="mt-5">
+    <section class="mt-5 max-w-7xl mx-auto sm:px-6 lg:px-8 ">
         <div class="flex justify-between items-center bg-[#12478a] p-3 border-t border-r border-l border-gray-200">
             <h5 class="font-semibold text-sm uppercase text-white">Información de la Organización</h5>
         </div>
@@ -42,7 +42,7 @@
         </div>
 
     </section>
-    <section class="mt-5">
+    <section class="mt-5 max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="flex items-center justify-between bg-[#12478a] p-3 border-t border-r border-l border-gray-200">
             <h5 class="font-semibold text-sm text-white uppercase">DIRECTIVA ACTUAL</h5>
 
@@ -76,10 +76,14 @@
 
         @endforeach
     </section>
-    <section class="mt-5 bg-white border border-gray-100 shadow-md ">
+    <section class="mt-5  max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between bg-[#b5beca] p-3 border-t border-r border-l border-gray-200">
+            <h5 class="font-semibold text-sm text-BLACK uppercase">DIRECTIVAS ANTERIORES</h5>
 
-        @foreach($directiva_anterior as $directiva_anteriores)
+        </div>
+
         <div class="grid grid-cols-3 gap-5 p-3 bg-gray-200">
+            @foreach($directiva_anterior as $directiva_anteriores)
             <div>
                 <label class="text-xs text-gray-600 uppercase">Vigencia</label>
                 <p class="uppercase text-sm font-semibold">{{$directiva_anteriores->vigencia}}</p>
@@ -92,8 +96,9 @@
                 <label class="text-xs text-gray-600 uppercase">Directiva</label>
                 <p class="uppercase text-sm font-semibold">{{$directiva_anteriores->integrantes}}</p>
             </div>
+            @endforeach
         </div>
-        @endforeach
+
 
 
 
@@ -145,3 +150,13 @@
 
 @include('organizaciones.directiva')
 @include('organizaciones.update')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+@if(session('modificado'))
+<script>
+    Swal.fire({
+        title: "Modificado!",
+        text: "Organización Modificada Correctamente!",
+        icon: "success"
+    });
+</script>
+@endif

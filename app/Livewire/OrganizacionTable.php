@@ -38,6 +38,7 @@ final class OrganizacionTable extends PowerGridComponent
             Footer::make()
                 ->showPerPage()
                 ->showRecordCount(),
+
         ];
     }
 

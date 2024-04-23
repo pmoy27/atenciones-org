@@ -1,0 +1,153 @@
+<!-- Main modal -->
+<div id="crud-create-org" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-2xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow ">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
+                <h3 class="text-lg font-semibold text-gray-900 uppercase ">
+                    Modificar Organización
+                </h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center " data-modal-toggle="crud-create-org">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <form class="p-4 md:p-5 " action="{{route('organizaciones.create')}}" method="post" enctype="multipart/form-data">
+                @csrf
+
+                <div class="grid gap-4 mb-4 grid-cols-2">
+
+                    <div class="col-span-2">
+                        <label for="name" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">NOMBRE</label>
+                        <input type="text" name="nombre" id="nombre" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block" required="">
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <label for="price" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">RUT</label>
+                        <input type="text" name="rut" id="rut" oninput="formatInput(this)" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block">
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <label for="category" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Tipo de organización</label>
+                        <select id="id_tipo" name="id_tipo" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block">
+                            <option selected>Seleccione una Opción</option>
+                            @foreach ($tipo_organizacion as $id => $tipo_nombre)
+                            <option value="{{ $id }}">{{ $tipo_nombre }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <label for="price" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">ROL MUNICIPAL</label>
+                        <input type="text" name="rol_municipal" id="rol_municipal" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block">
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <label for="price" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">fecha concesión</label>
+                        <input type="date" name="fecha_concesion" id="fecha_concesion" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block" required="">
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <label for="price" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">N° Registro</label>
+                        <input type="text" name="n_inscripcion_RC" id="n_inscripcion_RC" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block" required="">
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <label for="price" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Estatuto</label>
+                        <input type="date" name="estatuto" id="estatuto" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block" required="">
+                    </div>
+                    <div class="col-span-2">
+                        <label for="description" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Lugar de funcionamiento</label>
+                        <textarea id="lugar_funcionamiento" name="lugar_funcionamiento" rows="4" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path>
+                    </svg>
+                    CREAR ORGANIZACIÓN
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+@if(session('error'))
+<script>
+    Swal.fire({
+        title: "Registro Cancelado!!",
+        text: "Rut duplicado, este rut ya se encuerta registrado.",
+        icon: "error"
+    });
+</script>
+@endif
+@if(session('success'))
+<script>
+    Swal.fire({
+        title: "Registrado!",
+        text: "Organizacion registrada correctamente!",
+        icon: "success"
+    });
+</script>
+@endif
+<script>
+    function formatInput(input) {
+        let rut = input.value.replace(/[^\dKk]/g, ''); // Elimina caracteres no numéricos ni 'K'
+
+        if (rut.length > 1) {
+            const digits = rut.slice(0, -1);
+            const verifier = rut.slice(-1).toUpperCase();
+            rut = formatWithDots(digits) + '-' + verifier;
+        }
+
+        input.value = rut;
+    }
+
+    function formatWithDots(digits) {
+        const parts = [];
+        while (digits.length > 3) {
+            parts.unshift(digits.slice(-3));
+            digits = digits.slice(0, -3);
+        }
+        parts.unshift(digits);
+        return parts.join('.');
+    }
+
+    function isValidRUT(digits, verifier) {
+        const mod = 11;
+        let sum = 0;
+        let factor = 2;
+
+        digits = digits.replace(/\./g, ''); // Elimina los puntos de separación
+
+        for (let i = digits.length - 1; i >= 0; i--) {
+            sum += parseInt(digits.charAt(i)) * factor;
+            factor = factor === 7 ? 2 : factor + 1;
+        }
+
+        const calculatedVerifier = (11 - (sum % 11)).toString();
+        const expectedVerifier = verifier === 'K' ? '10' : verifier;
+
+        if (calculatedVerifier === '11') {
+            return expectedVerifier === '0';
+        } else if (calculatedVerifier === '10') {
+            return expectedVerifier === 'K';
+        }
+
+        return calculatedVerifier === expectedVerifier;
+    }
+
+    const inputElement = document.getElementById('clients_rut');
+    inputElement.addEventListener('input', function() {
+        formatInput(inputElement);
+
+        const verifier = inputElement.value.slice(-1).toUpperCase();
+        const digits = inputElement.value.slice(0, -2);
+        const isValid = isValidRUT(digits, verifier);
+
+        const mensajeErrorRut = document.getElementById("mensajeErrorRut");
+        if (isValid) {
+            mensajeErrorRut.style.display = "none";
+        } else {
+            mensajeErrorRut.style.display = "inline";
+        }
+    });
+</script>

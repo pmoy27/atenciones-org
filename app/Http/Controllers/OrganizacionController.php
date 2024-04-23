@@ -6,6 +6,7 @@ use App\Models\Directiva;
 use App\Models\Organizacion;
 use App\Models\Tipo_organicacion;
 use App\Models\Tipo_vigencia;
+use App\Models\Tipos;
 use Illuminate\Http\Request;
 
 class OrganizacionController extends Controller
@@ -15,8 +16,8 @@ class OrganizacionController extends Controller
      */
     public function index()
     {
-
-        return view('organizaciones.index');
+        $tipo_org = Tipo_organicacion::pluck('tipo_nombre', 'id')->toArray();
+        return view('organizaciones.index', ['tipo_organizacion' => $tipo_org]);
     }
 
     /**
@@ -24,7 +25,6 @@ class OrganizacionController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -32,7 +32,45 @@ class OrganizacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rut = $request->input('rut');
+
+        // Verificar si el campo 'rut' está vacío
+        if ($rut !== NULL) {
+            $existeORG = Organizacion::where('rut', $rut)->first();
+
+            if ($existeORG) {
+                // Si ya existe una organización con el mismo rut, mostrar un mensaje de error
+                return redirect()->back()->with('error', 'error');
+            } else {
+                // Si no existe una organización con el mismo rut, crear y guardar la nueva organización
+                $org = new Organizacion;
+                $org->nombre = $request->input('nombre');
+                $org->rut = $rut;
+                $org->id_tipo = $request->input('id_tipo');
+                $org->rol_municipal = $request->input('rol_municipal');
+                $org->fecha_concesion = $request->input('fecha_concesion');
+                $org->n_inscripcion_RC = $request->input('n_inscripcion_RC');
+                $org->estatuto = $request->input('estatuto');
+                $org->lugar_funcionamiento = $request->input('lugar_funcionamiento');
+                $org->save();
+
+                return redirect()->back()->with('success', 'success');
+            }
+        } else {
+            // Si el campo 'rut' está vacío, permitir que el código pase sin realizar ninguna acción
+            $org = new Organizacion;
+            $org->nombre = $request->input('nombre');
+            $org->rut = $rut;
+            $org->id_tipo = $request->input('id_tipo');
+            $org->rol_municipal = $request->input('rol_municipal');
+            $org->fecha_concesion = $request->input('fecha_concesion');
+            $org->n_inscripcion_RC = $request->input('n_inscripcion_RC');
+            $org->estatuto = $request->input('estatuto');
+            $org->lugar_funcionamiento = $request->input('lugar_funcionamiento');
+            $org->save();
+
+            return redirect()->back()->with('success', 'success');
+        }
     }
 
     /**
@@ -54,9 +92,19 @@ class OrganizacionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Organizacion $organizacion)
+    public function update(Request $request, $id)
     {
-        //
+        $organizacion = Organizacion::find($id);
+        $organizacion->nombre = $request->input('nombre');
+        $organizacion->rut = $request->input('rut');
+        $organizacion->rol_municipal = $request->input('rol_municipal');
+        $organizacion->fecha_concesion = $request->input('fecha_concesion');
+        $organizacion->n_inscripcion_RC = $request->input('n_inscripcion_RC');
+        $organizacion->lugar_funcionamiento = $request->input('lugar_funcionamiento');
+        $organizacion->estatuto = $request->input('estatuto');
+        $organizacion->id_tipo = $request->input('id_tipo');
+        $organizacion->update();
+        return redirect()->back()->with('modificado', 'modificado');;
     }
     public function detalle($id)
     {

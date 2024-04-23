@@ -24,11 +24,11 @@
                     <div class="grid gap-4 mb-4 grid-cols-1">
                         <input type="hidden" name="id_organizacion" id="id_organizacion" value="{{$organizacion->id}}">
                         <div class="col-span-2 sm:col-span-1">
-                            <label for="" class="block text-[10px] font-semibold text-gray-500 mb-1 uppercase">Fecha Cambio <span class="text-red-700 text-sm">*</span></label>
+                            <label for="" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Fecha Cambio <span class="text-red-700 text-sm">*</span></label>
                             <input type="date" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block " required="" name="fecha_cambio" id="fecha_cambio">
                         </div>
                         <div class="col-span-2 sm:col-span-1">
-                            <label for="" class="block text-[10px] font-semibold text-gray-500 mb-1 uppercase">Vigencia <span class="text-red-700 text-sm">*</span></label>
+                            <label for="" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Vigencia <span class="text-red-700 text-sm">*</span></label>
                             <select id="id_vigencia" name="id_vigencia" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block " required="">
                                 <option value="" selected>Selecciones una Opción</option>
                                 @foreach ($tipo_vigencia as $id => $vigencia)
@@ -38,11 +38,11 @@
                             </select>
                         </div>
                         <div class="col-span-2 sm:col-span-1">
-                            <label for="" class="block text-[10px] font-semibold text-gray-500 mb-1 uppercase">Fecha de Termino <span class="text-red-700 text-sm">*</span></label>
+                            <label for="" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Fecha de Termino <span class="text-red-700 text-sm">*</span></label>
                             <input type="date" name="fecha_termino_directiva" id="fecha_termino_directiva" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block " required="">
                         </div>
                         <div class="col-span-4 sm:col-span-1">
-                            <label for="" class="block text-[10px] font-semibold text-gray-500 mb-1 uppercase"> Directiva <span class="text-red-700 text-sm">*</span></label>
+                            <label for="" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase"> Directiva <span class="text-red-700 text-sm">*</span></label>
                             <textarea id="integrantes" name="integrantes" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-sm border border-gray-300 focus:ring-blue-500 focus:border-blue-500  " required=""></textarea>
                         </div>
 
