@@ -27,20 +27,13 @@
 
 
     </div>
-    <section class="flex gap-10 max-h-[350px]  ">
+    <section class="flex flex-col gap-10 max-w-7xl mx-auto sm:px-6 lg:px-8 ">
         <div class="border w-full bg-white shadow-md p-4">
             <div class="flex justify-between ">
                 <h1 class="mb-3  uppercase">Información Personal</h1>
-                <a href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
-                        <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
-                        <path d="M16 5l3 3" />
-                    </svg>
-                </a>
+
             </div>
-            <div class=" grid gap-x-16 gap-y-3 mb-4 grid-cols-2 max-w-full ">
+            <div class=" grid gap-x-16 gap-y-3 mb-4 grid-cols-3 max-w-full ">
                 <div class="flex flex-col col-span-2 sm:col-span-1 ">
                     <span class="text-xs text-gray-600 uppercase">Nombre</span>
                     <label class="uppercase font-semibold">{{$personas->nombres}} {{$personas->apellidos}}</label>
@@ -54,7 +47,7 @@
                     <label class="uppercase font-semibold">{{$personas->telefono}}</label>
                 </div>
                 <div class="flex flex-col col-span-2 sm:col-span-1">
-                    <span class="text-xs text-gray-600 uppercase">Sexo</span>
+                    <span class="text-xs text-gray-600 uppercase">Genero</span>
                     <label class="uppercase font-semibold">{{$personas->sexo}}</label>
                 </div>
                 <div class="flex flex-col col-span-2 sm:col-span-1">
@@ -169,7 +162,7 @@
     <div data-dial-init class="fixed end-6 bottom-6 group">
         <div id="speed-dial-menu-default" class="flex flex-col items-center hidden mb-4 space-y-2">
 
-            <button type="button" data-tooltip-target="tooltip-download" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400">
+            <button type="button" data-modal-target="crud-editar-personas" data-modal-toggle="crud-editar-personas" data-tooltip-target="tooltip-download" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-[#12478a] dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
@@ -182,7 +175,7 @@
                 Editar Persona
                 <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
-            <button data-modal-target="modal-crear" data-modal-toggle="modal-crear" type="button" data-tooltip-target="tooltip-copy" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-gray-200 dark:border-gray-600 dark:hover:text-white shadow-sm dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400">
+            <button data-modal-target="modal-crear" data-modal-toggle="modal-crear" type="button" data-tooltip-target="tooltip-copy" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-[#12478a] dark:border-gray-600 dark:hover:text-white shadow-sm dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-plus">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M14 3v4a1 1 0 0 0 1 1h4" />
@@ -196,7 +189,7 @@
                 <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
         </div>
-        <button type="button" data-dial-toggle="speed-dial-menu-default" aria-controls="speed-dial-menu-default" aria-expanded="false" class="flex items-center justify-center text-white bg-blue-700 rounded-full w-14 h-14 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800">
+        <button type="button" data-dial-toggle="speed-dial-menu-default" aria-controls="speed-dial-menu-default" aria-expanded="false" class="flex items-center justify-center text-white bg-[#12478a] rounded-full w-14 h-14 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800">
             <svg class="w-5 h-5 transition-transform group-hover:rotate-45" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
             </svg>
@@ -206,12 +199,31 @@
 
 </div>
 @include('atenciones.create')
+@include('personas.update')
 
 @if(session('agregado'))
 <script>
     Swal.fire({
         title: "Registrado!",
         text: "Atención registrada correctamente!",
+        icon: "success"
+    });
+</script>
+@endif
+@if(session('error'))
+<script>
+    Swal.fire({
+        title: "Registro Cancelado!!",
+        text: "Rut duplicado, este rut ya se encuerta registrado.",
+        icon: "error"
+    });
+</script>
+@endif
+@if(session('update'))
+<script>
+    Swal.fire({
+        title: "Actualizado!",
+        text: "Persona modificada correctamente!",
         icon: "success"
     });
 </script>

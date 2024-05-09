@@ -19,19 +19,15 @@ use PowerComponents\LivewirePowerGrid\Traits\WithExport;
 
 final class OrganizacionTable extends PowerGridComponent
 {
-    use WithExport;
+
 
     public function setUp(): array
     {
 
 
         return [
-            Exportable::make('export')
-                ->striped()
-                ->columnWidth([
-                    2 => 30,
-                ])
-                ->type(Exportable::TYPE_XLS, Exportable::TYPE_CSV),
+
+
             Header::make()
                 ->showSearchInput(),
 

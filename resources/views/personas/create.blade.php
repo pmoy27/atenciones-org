@@ -178,11 +178,11 @@
                 </div>
                 <div class="col-span-2 sm:col-span-1">
                     <label for="" class="block text-[10px] font-semibold text-gray-500 mb-1 uppercase">dirección</label>
-                    <input type="text" name="direccion" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block " required="">
+                    <input type="text" name="direccion" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block ">
                 </div>
                 <div class="col-span-2 sm:col-span-1">
                     <label for="" class="block text-[10px] font-semibold text-gray-500 mb-1 uppercase">Sector <span class="text-red-700 text-sm">*</span></label>
-                    <select id="sector" name="sector" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block ">
+                    <select id="sector" name="sector" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block " required="">
                         <option selected>Seleccione una Opción</option>
                         <option name="sector" value="URBANO">URBANO</option>
                         <option name="sector" value="RURAL">RURAL</option>
@@ -192,7 +192,7 @@
                 </div>
                 <div class="col-span-2 sm:col-span-1">
                     <label for="" class="block text-[10px] font-semibold text-gray-500 mb-1 uppercase">numero de teléfono</label>
-                    <input type="text" name="telefono" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block " required="">
+                    <input type="text" name="telefono" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block ">
                 </div>
                 <div class="col-span-2 sm:col-span-1">
                     <label for="" class="block text-[10px] font-semibold text-gray-500 mb-1 uppercase">fecha de nacimiento <span class="text-red-700 text-sm">*</span></label>
@@ -200,7 +200,7 @@
                 </div>
                 <div class="col-span-2 sm:col-span-1">
                     <label for="" class="block text-[10px] font-semibold text-gray-500 mb-1 uppercase">GENERO <span class="text-red-700 text-sm">*</span></label>
-                    <select id="sector" name="sexo" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block ">
+                    <select id="sector" name="sexo" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block " required="">
                         <option selected>Seleccione una Opción</option>
                         <option name="sexo" value="MASCULINO">MASCULINO</option>
                         <option name="sexo" value="FEMENINO">FEMENINO</option>
@@ -211,9 +211,9 @@
                 <div class="col-span-2 sm:col-span-2">
                     <label for="" class="block text-[10px] font-semibold text-gray-500 mb-1 uppercase">ORGANIZACIÓN <span class="text-red-700 text-sm">*</span></label>
                     <select id="organizacion" name="organizacion" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block ">
-                        <option selected>Seleccione una Opción</option>
+                        <option value="" selected>Seleccione una Opción</option>
                         @foreach ($organizacion as $id => $nombre)
-                        <option value="{{ $id }}">{{ $nombre }}</option>
+                        <option name="organizacion" value="{{ $id }}">{{ $nombre }}</option>
                         @endforeach
                     </select>
 

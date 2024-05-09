@@ -99,6 +99,18 @@
         </div>
         <ul class=" mt-5 space-y-2 text-sm">
             <li>
+                <a href="{{ route('profile.edit') }}" class="flex items-center p-2 rounded-lg text-white  hover:bg-gray-700 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="text-white" width="16" height="16" color="#000000" fill="none">
+                        <path d="M14 9H18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M14 12.5H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        <rect x="2" y="3" width="20" height="18" rx="5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                        <path d="M5 16C6.20831 13.4189 10.7122 13.2491 12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M10.5 9C10.5 10.1046 9.60457 11 8.5 11C7.39543 11 6.5 10.1046 6.5 9C6.5 7.89543 7.39543 7 8.5 7C9.60457 7 10.5 7.89543 10.5 9Z" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                    <span class="ms-3">Editar mi información</span>
+                </a>
+            </li>
+            <li>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <a href="{{ route('logout') }}" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group" onclick="event.preventDefault(); this.closest('form').submit();">

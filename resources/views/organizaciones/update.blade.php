@@ -32,9 +32,11 @@
                     <div class="col-span-2 sm:col-span-1">
                         <label for="category" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Tipo de organización</label>
                         <select id="id_tipo" name="id_tipo" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block">
-                            <option id="id_tipo" name="id_tipo" value="{{$organizacion->Tipo_Organizacion->id }}">{{$organizacion->Tipo_Organizacion->tipo_nombre }}</option>
-
+                            @foreach ($tipo_organizacion as $id => $tipo_nombre)
+                            <option value="{{ $id }}" @if ($organizacion->Tipo_Organizacion->id == $id) selected @endif>{{ $tipo_nombre }}</option>
+                            @endforeach
                         </select>
+
                     </div>
                     <div class="col-span-2 sm:col-span-1">
                         <label for="price" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">ROL MUNICIPAL</label>

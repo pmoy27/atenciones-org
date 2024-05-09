@@ -32,10 +32,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/detalle/{id}', [PersonasController::class, 'detalle'])->name('personas.detalle');
     Route::get('/organizaciones', [OrganizacionController::class, 'index'])->name('organizaciones.index');
     Route::put('/organizaciones/{id}', [OrganizacionController::class, 'update'])->name('organizaciones.update');
+    Route::put('/personas/{id}', [PersonasController::class, 'update'])->name('personas.update');
     Route::post('/registro-org', [OrganizacionController::class, 'store'])->name('organizaciones.create');
     Route::get('/detalle-org/{id}', [OrganizacionController::class, 'detalle'])->name('organizaciones.detalle');
     Route::get('/crear-atencion/{id_persona}', [AtencionesController::class, 'create'])->name('atenciones.create');
     Route::post('/registro-directiva', [DirectivaController::class, 'agregarDirectiva'])->name('directiva.agregarDirectiva');
+    Route::get('organizacion/export/', [OrganizacionController::class, 'export'])->name('export');
 });
 
 require __DIR__ . '/auth.php';

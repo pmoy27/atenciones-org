@@ -73,6 +73,8 @@ class PersonasController extends Controller
     }
     public function detalle($id_persona)
     {
+
+        $organizacion = Organizacion::pluck('nombre', 'id')->toArray();
         // Buscar la persona por ID
         $personas = Personas::with('organizacion')->find($id_persona);
         $id_usuario = auth()->id();
@@ -91,6 +93,7 @@ class PersonasController extends Controller
             'id_usuario' => $id_usuario,
             'tipos_atencion' => $tipos_atencion,
             'nombre_organizacion' => $nombre_organizacion,
+            'organizacion' => $organizacion,
         ]);
     }
     /**
@@ -112,9 +115,28 @@ class PersonasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Personas $personas)
+    public function update(Request $request, $id)
     {
-        //
+        /* $existingPersona = Personas::where('rut', $request->input('rut'))->first();
+
+        if ($existingPersona) {
+            // Si ya existe una persona con el mismo rut, mostrar un mensaje de error
+            return redirect()->back()->with('error', 'error');
+        }*/
+
+
+        $personas = Personas::find($id);
+        $personas->nombres = $request->input('nombres');
+        $personas->apellidos = $request->input('apellidos');
+        $personas->rut = $request->input('rut');
+        $personas->direccion = $request->input('direccion');
+        $personas->sector = $request->input('sector');
+        $personas->telefono = $request->input('telefono');
+        $personas->fecha_nacimiento = $request->input('fecha_nacimiento');
+        $personas->sexo = $request->input('sexo');
+        $personas->id_organizacion = $request->input('organizacion');
+        $personas->update();
+        return redirect()->back()->with('update', 'update');
     }
 
     /**

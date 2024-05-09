@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\OrganizacionExport;
 use App\Models\Directiva;
 use App\Models\Organizacion;
 use App\Models\Tipo_organicacion;
 use App\Models\Tipo_vigencia;
 use App\Models\Tipos;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class OrganizacionController extends Controller
 {
@@ -19,7 +21,10 @@ class OrganizacionController extends Controller
         $tipo_org = Tipo_organicacion::pluck('tipo_nombre', 'id')->toArray();
         return view('organizaciones.index', ['tipo_organizacion' => $tipo_org]);
     }
-
+    public function export()
+    {
+        return Excel::download(new OrganizacionExport, 'organizacion.xlsx');
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -113,6 +118,7 @@ class OrganizacionController extends Controller
             // Abortar con un error 404
             abort(404);
         }
+        $tipo_org = Tipo_organicacion::pluck('tipo_nombre', 'id')->toArray();
 
         // Consulta para la seccion de Directiva Actual
         $directivas = Directiva::select('directivas.*', 'tipo_vigencias.vigencia AS vigencia')
@@ -134,7 +140,8 @@ class OrganizacionController extends Controller
             'organizacion' => $organizacion,
             'directivas' => $directivas,
             'directiva_anterior' => $directiva_anterior,
-            'tipo_vigencia' => $tipo_vigencia
+            'tipo_vigencia' => $tipo_vigencia,
+            'tipo_organizacion' => $tipo_org
         ]);
     }
 

@@ -4,7 +4,7 @@
     <div class="mb-5">
         <span class="text-2xl font-semibold uppercase">dashboard</span>
     </div>
-    <div class="flex flex-col lg:flex-row gap-10 lg:gap-20 m-auto pl-10">
+    <div class="flex flex-col lg:flex-row gap-10 max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="flex items-center justify-between gap-5 lg:w-[270px] w-[100%vw] p-6 bg-white border border-gray-200 rounded-sm shadow">
             <div class="flex flex-col">
                 <span class="text-[18px]">{{$totalAtenciones}}</span>
@@ -59,7 +59,7 @@
 
 
     </div>
-    <div class="flex flex-col lg:flex-row gap-10 lg:gap-20 mt-5 pl-10">
+    <div class="flex flex-col lg:flex-row gap-10 max-w-7xl mx-auto sm:px-6 lg:px-8 mt-5 ">
         <div class="flex items-center justify-between gap-5 lg:w-[270px] w-[100%vw] p-6 bg-white border border-gray-200 rounded-sm shadow">
             <div class="flex flex-col">
                 <span class="text-[18px]">{{ $totalOrg }}</span>

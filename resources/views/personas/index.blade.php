@@ -1,7 +1,16 @@
 @include('menu.menu')
 @livewireScripts
 
+<style>
+    #table_base_default thead tr th {
+        background-color: #1F2937;
+        color: white;
+    }
 
+    #pg-footer nav a {
+        color: black;
+    }
+</style>
 
 <div class="p-4 lg:ml-64  h-full bg-slate-50">
     <div class="flex justify-between items-center">
