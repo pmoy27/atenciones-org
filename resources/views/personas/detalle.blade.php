@@ -38,7 +38,7 @@
 
             <div class="flex flex-col col-span-2 sm:col-span-1 ">
                 <div class="flex">
-                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-400 rounded-s-sm ">
+                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-gray-400 rounded-s-sm ">
                         NOMBRE
                     </span>
                     <input type="text" id="website-admin" value="{{$personas->nombres}} {{$personas->apellidos}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
@@ -46,7 +46,7 @@
             </div>
             <div class="flex flex-col col-span-2 sm:col-span-1">
                 <div class="flex">
-                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-400 rounded-s-sm ">
+                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-gray-400 rounded-s-sm ">
                         RUT
                     </span>
                     <input type="text" id="website-admin" value="{{$personas->rut}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
@@ -55,7 +55,7 @@
             </div>
             <div class="flex flex-col col-span-2 sm:col-span-1">
                 <div class="flex">
-                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-400 rounded-s-sm ">
+                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-gray-400 rounded-s-sm ">
                         TELÉFONO
                     </span>
                     <input type="text" id="website-admin" value="{{$personas->telefono}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
@@ -63,7 +63,7 @@
             </div>
             <div class="flex flex-col col-span-2 sm:col-span-1">
                 <div class="flex">
-                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-400 rounded-s-sm ">
+                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-gray-400 rounded-s-sm ">
                         GENERO
                     </span>
                     <input type="text" id="website-admin" value="{{$personas->sexo}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
@@ -71,7 +71,7 @@
             </div>
             <div class="flex flex-col col-span-2 sm:col-span-1">
                 <div class="flex">
-                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-400 rounded-s-sm ">
+                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-gray-400 rounded-s-sm ">
                         FECHA DE NACIMIENTO
                     </span>
                     <input type="text" id="website-admin" value="{{ \Carbon\Carbon::createFromFormat('Y-m-d', $personas->fecha_nacimiento)->format('d/m/Y') }}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
@@ -79,7 +79,7 @@
             </div>
             <div class="flex flex-col col-span-2 sm:col-span-1">
                 <div class="flex">
-                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-400 rounded-s-sm ">
+                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-gray-400 rounded-s-sm ">
                         EDAD
                     </span>
                     <input type="text" id="website-admin" value="{{$personas->edad}} AÑOS" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
@@ -87,7 +87,7 @@
             </div>
             <div class="flex flex-col col-span-2 sm:col-span-1">
                 <div class="flex">
-                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-400 rounded-s-sm ">
+                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-gray-400 rounded-s-sm ">
                         DIRECCIÓN
                     </span>
                     <input type="text" id="website-admin" value="{{$personas->direccion}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
@@ -95,7 +95,7 @@
             </div>
             <div class="flex flex-col col-span-2 sm:col-span-1">
                 <div class="flex">
-                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-400 rounded-s-sm ">
+                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-gray-400 rounded-s-sm ">
                         SECTOR
                     </span>
                     <input type="text" id="website-admin" value="{{$personas->sector}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
@@ -103,7 +103,7 @@
             </div>
             <div class="flex flex-col col-span-2 sm:col-span-2">
                 <div class="flex">
-                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-400 rounded-s-sm ">
+                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-gray-400 rounded-s-sm ">
                         ORGANIZACIÓN
                     </span>
                     <input type="text" id="website-admin" value="{{ $nombre_organizacion }}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
