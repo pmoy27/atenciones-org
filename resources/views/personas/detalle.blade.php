@@ -1,7 +1,7 @@
 @include('menu.menu')
 @livewireScripts
 
-<div class="p-4 lg:ml-64  h-full bg-slate-50">
+<div class="p-4 lg:ml-64  h-full bg-gray-50">
     <div class="mb-7 flex flex-col gap-3 lg:flex-row justify-between  item-center ">
         <nav class="flex" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -28,52 +28,90 @@
 
     </div>
     <section class="flex flex-col gap-10 max-w-7xl mx-auto sm:px-6 lg:px-8 ">
-        <div class="border w-full bg-white shadow-md p-4">
-            <div class="flex justify-between ">
-                <h1 class="mb-3  uppercase">Información Personal</h1>
 
-            </div>
-            <div class=" grid gap-x-16 gap-y-3 mb-4 grid-cols-3 max-w-full ">
-                <div class="flex flex-col col-span-2 sm:col-span-1 ">
-                    <span class="text-xs text-gray-600 uppercase">Nombre</span>
-                    <label class="uppercase font-semibold">{{$personas->nombres}} {{$personas->apellidos}}</label>
-                </div>
-                <div class="flex flex-col col-span-2 sm:col-span-1">
-                    <span class="text-xs text-gray-600 uppercase">Rut</span>
-                    <label class="uppercase font-semibold">{{$personas->rut}}</label>
-                </div>
-                <div class="flex flex-col col-span-2 sm:col-span-1">
-                    <span class="text-xs text-gray-600 uppercase">Telefono</span>
-                    <label class="uppercase font-semibold">{{$personas->telefono}}</label>
-                </div>
-                <div class="flex flex-col col-span-2 sm:col-span-1">
-                    <span class="text-xs text-gray-600 uppercase">Genero</span>
-                    <label class="uppercase font-semibold">{{$personas->sexo}}</label>
-                </div>
-                <div class="flex flex-col col-span-2 sm:col-span-1">
-                    <span class="text-xs text-gray-600 uppercase">Fecha de Nacimiento</span>
-                    <label class="uppercase font-semibold">{{ \Carbon\Carbon::createFromFormat('Y-m-d', $personas->fecha_nacimiento)->format('d/m/Y') }}</label>
-
-                </div>
-                <div class="flex flex-col col-span-2 sm:col-span-1">
-                    <span class="text-xs text-gray-600 uppercase">Edad</span>
-                    <label class="uppercase font-semibold">{{$personas->edad}}</label>
-                </div>
-                <div class="flex flex-col col-span-2 sm:col-span-1">
-                    <span class="text-xs text-gray-600 uppercase">Dirección</span>
-                    <label class="uppercase font-semibold">{{$personas->direccion}}</label>
-                </div>
-                <div class="flex flex-col col-span-2 sm:col-span-1">
-                    <span class="text-xs text-gray-600 uppercase">Sector</span>
-                    <label class="uppercase font-semibold">{{$personas->sector}}</label>
-                </div>
-                <div class="flex flex-col col-span-2 sm:col-span-2">
-                    <span class="text-xs text-gray-600 uppercase">Organización</span>
-                    <label class="uppercase font-semibold">{{ $nombre_organizacion }}</label>
-                </div>
-            </div>
+        <div class="flex justify-between ">
+            <h1 class="  uppercase">Información Personal</h1>
 
         </div>
+        <div class=" grid gap-x-16 gap-y-3  grid-cols-2 max-w-full ">
+
+
+            <div class="flex flex-col col-span-2 sm:col-span-1 ">
+                <div class="flex">
+                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-400 rounded-s-sm ">
+                        NOMBRE
+                    </span>
+                    <input type="text" id="website-admin" value="{{$personas->nombres}} {{$personas->apellidos}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                </div>
+            </div>
+            <div class="flex flex-col col-span-2 sm:col-span-1">
+                <div class="flex">
+                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-400 rounded-s-sm ">
+                        RUT
+                    </span>
+                    <input type="text" id="website-admin" value="{{$personas->rut}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                </div>
+
+            </div>
+            <div class="flex flex-col col-span-2 sm:col-span-1">
+                <div class="flex">
+                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-400 rounded-s-sm ">
+                        TELÉFONO
+                    </span>
+                    <input type="text" id="website-admin" value="{{$personas->telefono}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                </div>
+            </div>
+            <div class="flex flex-col col-span-2 sm:col-span-1">
+                <div class="flex">
+                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-400 rounded-s-sm ">
+                        GENERO
+                    </span>
+                    <input type="text" id="website-admin" value="{{$personas->sexo}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                </div>
+            </div>
+            <div class="flex flex-col col-span-2 sm:col-span-1">
+                <div class="flex">
+                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-400 rounded-s-sm ">
+                        FECHA DE NACIMIENTO
+                    </span>
+                    <input type="text" id="website-admin" value="{{ \Carbon\Carbon::createFromFormat('Y-m-d', $personas->fecha_nacimiento)->format('d/m/Y') }}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                </div>
+            </div>
+            <div class="flex flex-col col-span-2 sm:col-span-1">
+                <div class="flex">
+                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-400 rounded-s-sm ">
+                        EDAD
+                    </span>
+                    <input type="text" id="website-admin" value="{{$personas->edad}} AÑOS" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                </div>
+            </div>
+            <div class="flex flex-col col-span-2 sm:col-span-1">
+                <div class="flex">
+                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-400 rounded-s-sm ">
+                        DIRECCIÓN
+                    </span>
+                    <input type="text" id="website-admin" value="{{$personas->direccion}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                </div>
+            </div>
+            <div class="flex flex-col col-span-2 sm:col-span-1">
+                <div class="flex">
+                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-400 rounded-s-sm ">
+                        SECTOR
+                    </span>
+                    <input type="text" id="website-admin" value="{{$personas->sector}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                </div>
+            </div>
+            <div class="flex flex-col col-span-2 sm:col-span-2">
+                <div class="flex">
+                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-e-0 border-gray-400 rounded-s-sm ">
+                        ORGANIZACIÓN
+                    </span>
+                    <input type="text" id="website-admin" value="{{ $nombre_organizacion }}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                </div>
+            </div>
+        </div>
+
+
         <div class="w-full ">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs uppercase  bg-gray-700 text-white">
@@ -162,7 +200,7 @@
     <div data-dial-init class="fixed end-6 bottom-6 group">
         <div id="speed-dial-menu-default" class="flex flex-col items-center hidden mb-4 space-y-2">
 
-            <button type="button" data-modal-target="crud-editar-personas" data-modal-toggle="crud-editar-personas" data-tooltip-target="tooltip-download" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-[#12478a] dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400">
+            <button type="button" data-modal-target="crud-editar-personas" data-modal-toggle="crud-editar-personas" data-tooltip-target="tooltip-download" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-[#12478a] dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-white dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
@@ -175,7 +213,7 @@
                 Editar Persona
                 <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
-            <button data-modal-target="modal-crear" data-modal-toggle="modal-crear" type="button" data-tooltip-target="tooltip-copy" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-[#12478a] dark:border-gray-600 dark:hover:text-white shadow-sm dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400">
+            <button data-modal-target="modal-crear" data-modal-toggle="modal-crear" type="button" data-tooltip-target="tooltip-copy" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-[#12478a] dark:border-gray-600 dark:hover:text-white shadow-sm dark:text-gray-400 hover:bg-white dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-plus">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M14 3v4a1 1 0 0 0 1 1h4" />
@@ -234,6 +272,15 @@
     Swal.fire({
         title: "Eliminado!",
         text: "Atención Eliminado Correctamente!",
+        icon: "success"
+    });
+</script>
+@endif
+@if(session('agregado'))
+<script>
+    Swal.fire({
+        title: "Registrado!",
+        text: "Persona Registrada Correctamente!",
         icon: "success"
     });
 </script>

@@ -69,7 +69,7 @@ class PersonasController extends Controller
         $personas->id_organizacion = $request->input('organizacion');
         $personas->save();
 
-        return redirect()->back()->with('success', 'success');
+        return redirect()->route('personas.detalle', ['id' => $personas->id])->with('agregado', 'agregado');
     }
     public function detalle($id_persona)
     {
