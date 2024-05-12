@@ -38,6 +38,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/crear-atencion/{id_persona}', [AtencionesController::class, 'create'])->name('atenciones.create');
     Route::post('/registro-directiva', [DirectivaController::class, 'agregarDirectiva'])->name('directiva.agregarDirectiva');
     Route::get('organizacion/export/', [OrganizacionController::class, 'export'])->name('export');
+    Route::get('/menu/Logo.png', function () {
+        return response()->file(base_path('resources/views/menu/Logo.png'));
+    });
 });
 
 require __DIR__ . '/auth.php';
