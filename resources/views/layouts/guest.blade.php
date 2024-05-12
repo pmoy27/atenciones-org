@@ -20,7 +20,7 @@
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
         <div>
             <a href="/">
-                <img class="w-[300px] h-[230px]" src="{{ asset('imagenes/logo.png') }}" alt="Logo">
+                <img class="w-[300px] h-[230px]" src="{{ url('/menu/Logo.png') }}" alt="Logo">
 
             </a>
         </div>
