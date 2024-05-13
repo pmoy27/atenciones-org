@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-span-2 sm:col-span-1">
                         <label for="price" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">RUT</label>
-                        <input type="text" name="rut" id="rut" value="{{$organizacion->rut}}" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block" required="">
+                        <input type="text" name="rut" id="rut" value="{{$organizacion->rut}}" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block">
                     </div>
                     <div class="col-span-2 sm:col-span-1">
                         <label for="category" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Tipo de organización</label>

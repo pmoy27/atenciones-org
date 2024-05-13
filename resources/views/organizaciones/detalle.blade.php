@@ -84,7 +84,7 @@
 
 
         </div>
-        <div class="">
+        <div class="p-3">
             @foreach($directivas as $directiva)
             <div class="grid grid-cols-2 gap-5  ">
 
@@ -123,10 +123,11 @@
 
 
         </div>
+        @include('organizaciones.update-directiva')
 
         @endforeach
     </section>
-    <section class="mt-5  max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <section class="mt-5 max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="flex items-center justify-between bg-[#b5beca] p-3 border-t border-r border-l border-gray-200">
             <h5 class="font-semibold text-sm text-BLACK uppercase">DIRECTIVAS ANTERIORES</h5>
 
@@ -146,6 +147,7 @@
                 <label class="text-xs text-gray-600 uppercase">Directiva</label>
                 <p class="uppercase text-sm font-semibold">{{$directiva_anteriores->integrantes}}</p>
             </div>
+
             @endforeach
         </div>
 
@@ -161,19 +163,6 @@
     <div data-dial-init class="fixed end-6 bottom-6 group">
         <div id="speed-dial-menu-default" class="flex flex-col items-center hidden mb-4 space-y-2">
 
-            <button data-modal-target="crud-editar-org" data-modal-toggle="crud-editar-org" type="button" data-tooltip-target="tooltip-download" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-[#12478a] hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 focus:outline-none ">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
-                    <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
-                    <path d="M16 5l3 3" />
-                </svg>
-                <span class="sr-only">Editar Organización</span>
-            </button>
-            <div id="tooltip-download" role="tooltip" class="absolute z-10 invisible inline-block w-auto px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                Editar Organización
-                <div class="tooltip-arrow" data-popper-arrow></div>
-            </div>
             <button data-modal-target="modal-directiva" data-modal-toggle="modal-directiva" type="button" data-tooltip-target="tooltip-copy" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-[#12478a] hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 focus:outline-none ">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-plus">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -187,6 +176,20 @@
                 Registrar Directiva
                 <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
+            <button data-modal-target="crud-editar-org" data-modal-toggle="crud-editar-org" type="button" data-tooltip-target="tooltip-download" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-[#12478a] hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 focus:outline-none ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
+                    <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
+                    <path d="M16 5l3 3" />
+                </svg>
+                <span class="sr-only">Editar Organización</span>
+            </button>
+            <div id="tooltip-download" role="tooltip" class="absolute z-10 invisible inline-block w-auto px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                Editar Organización
+                <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+
             <button data-modal-target="crud-editar-directiva" data-modal-toggle="crud-editar-directiva" type="button" data-tooltip-target="tooltip-edit" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-full border border-[#12478a] hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 focus:outline-none ">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-pencil">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -213,7 +216,9 @@
 
 @include('organizaciones.directiva')
 @include('organizaciones.update')
-@include('organizaciones.update-directiva')
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 @if(session('modificado'))
 <script>

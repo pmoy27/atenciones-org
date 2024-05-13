@@ -5,6 +5,7 @@ use App\Http\Controllers\PersonasController;
 use App\Http\Controllers\AtencionesController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\DirectivaController;
+use App\Http\Controllers\GestionController;
 use App\Http\Controllers\OrganizacionController;
 use App\Models\Atenciones;
 use App\Models\Organizacion;
@@ -40,6 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/crear-atencion/{id_persona}', [AtencionesController::class, 'create'])->name('atenciones.create');
     Route::post('/registro-directiva', [DirectivaController::class, 'agregarDirectiva'])->name('directiva.agregarDirectiva');
     Route::get('organizacion/export/', [OrganizacionController::class, 'export'])->name('export');
+    Route::get('/gestion', [GestionController::class, 'index'])->name('gestion.index');
 });
 
 require __DIR__ . '/auth.php';

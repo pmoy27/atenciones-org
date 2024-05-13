@@ -25,7 +25,7 @@
                         <input type="hidden" name="id_organizacion" id="id_organizacion" value="{{$organizacion->id}}">
                         <div class="col-span-2 sm:col-span-1">
                             <label for="" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Fecha Cambio <span class="text-red-700 text-sm">*</span></label>
-                            <input type="date" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block " required="" name="fecha_cambio" id="fecha_cambio">
+                            <input type="date" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block " name="fecha_cambio" id="fecha_cambio">
                         </div>
                         <div class="col-span-2 sm:col-span-1">
                             <label for="" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Vigencia <span class="text-red-700 text-sm">*</span></label>
