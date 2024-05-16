@@ -26,8 +26,8 @@
                         <input type="text" name="nombre" id="nombre" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block" value="{{$organizacion->nombre}}" required="">
                     </div>
                     <div class="col-span-2 sm:col-span-1">
-                        <label for="price" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">RUT</label>
-                        <input type="text" name="rut" id="rut" value="{{$organizacion->rut}}" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block">
+                        <label class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">RUT</label>
+                        <input type="text" name="rut" id="rut" oninput="formatInput(this)" value="{{$organizacion->rut}}" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block">
                     </div>
                     <div class="col-span-2 sm:col-span-1">
                         <label for="category" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Tipo de organización</label>
@@ -39,23 +39,23 @@
 
                     </div>
                     <div class="col-span-2 sm:col-span-1">
-                        <label for="price" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">ROL MUNICIPAL</label>
+                        <label class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">ROL MUNICIPAL</label>
                         <input type="text" name="rol_municipal" id="rol_municipal" value="{{$organizacion->rol_municipal}}" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block" required="">
                     </div>
                     <div class="col-span-2 sm:col-span-1">
-                        <label for="price" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">fecha concesión</label>
+                        <label class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">fecha concesión</label>
                         <input type="date" name="fecha_concesion" id="fecha_concesion" value="{{$organizacion->fecha_concesion}}" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block" required="">
                     </div>
                     <div class="col-span-2 sm:col-span-1">
-                        <label for="price" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">N° Registro</label>
+                        <label class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">N° Registro</label>
                         <input type="text" name="n_inscripcion_RC" id="n_inscripcion_RC" value="{{$organizacion->n_inscripcion_RC}}" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block" required="">
                     </div>
                     <div class="col-span-2 sm:col-span-1">
-                        <label for="price" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Estatuto</label>
+                        <label class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Estatuto</label>
                         <input type="date" name="estatuto" id="estatuto" value="{{$organizacion->estatuto}}" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block" required="">
                     </div>
                     <div class="col-span-2">
-                        <label for="description" class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Lugar de funcionamiento</label>
+                        <label class="block text-[12px] font-semibold text-gray-500 mb-1 uppercase">Lugar de funcionamiento</label>
                         <textarea id="lugar_funcionamiento" name="lugar_funcionamiento" rows="4" class="bg-white border uppercase w-full border-gray-300 text-gray-900 text-xs rounded-sm focus:ring-primary-400 focus:border-primary-600 block">{{$organizacion->lugar_funcionamiento}}</textarea>
                     </div>
                 </div>
@@ -69,3 +69,67 @@
         </div>
     </div>
 </div>
+
+<script>
+    function formatInput(input) {
+        let rut = input.value.replace(/[^\dKk]/g, ''); // Elimina caracteres no numéricos ni 'K'
+
+        if (rut.length > 1) {
+            const digits = rut.slice(0, -1);
+            const verifier = rut.slice(-1).toUpperCase();
+            rut = formatWithDots(digits) + '-' + verifier;
+        }
+
+        input.value = rut;
+    }
+
+    function formatWithDots(digits) {
+        const parts = [];
+        while (digits.length > 3) {
+            parts.unshift(digits.slice(-3));
+            digits = digits.slice(0, -3);
+        }
+        parts.unshift(digits);
+        return parts.join('.');
+    }
+
+    function isValidRUT(digits, verifier) {
+        const mod = 11;
+        let sum = 0;
+        let factor = 2;
+
+        digits = digits.replace(/\./g, ''); // Elimina los puntos de separación
+
+        for (let i = digits.length - 1; i >= 0; i--) {
+            sum += parseInt(digits.charAt(i)) * factor;
+            factor = factor === 7 ? 2 : factor + 1;
+        }
+
+        const calculatedVerifier = (11 - (sum % 11)).toString();
+        const expectedVerifier = verifier === 'K' ? '10' : verifier;
+
+        if (calculatedVerifier === '11') {
+            return expectedVerifier === '0';
+        } else if (calculatedVerifier === '10') {
+            return expectedVerifier === 'K';
+        }
+
+        return calculatedVerifier === expectedVerifier;
+    }
+
+    const inputElement = document.getElementById('clients_rut');
+    inputElement.addEventListener('input', function() {
+        formatInput(inputElement);
+
+        const verifier = inputElement.value.slice(-1).toUpperCase();
+        const digits = inputElement.value.slice(0, -2);
+        const isValid = isValidRUT(digits, verifier);
+
+        const mensajeErrorRut = document.getElementById("mensajeErrorRut");
+        if (isValid) {
+            mensajeErrorRut.style.display = "none";
+        } else {
+            mensajeErrorRut.style.display = "inline";
+        }
+    });
+</script>

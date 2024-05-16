@@ -13,7 +13,7 @@
                     <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-e-0 border-gray-400 rounded-s-sm ">
                         TIPO DE ORGANIZACIÓN
                     </span>
-                    <input type="text" id="website-admin" value="{{$organizacion->Tipo_Organizacion->tipo_nombre }}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                    <input type="text" id="" value="{{$organizacion->Tipo_Organizacion->tipo_nombre }}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
                 </div>
             </div>
             <div class="flex flex-col col-span-2 sm:col-span-1 ">
@@ -21,7 +21,7 @@
                     <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-gray-400 rounded-s-sm ">
                         NOMBRE
                     </span>
-                    <input type="text" id="website-admin" value="{{$organizacion->nombre}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                    <input type="text" id="" value="{{$organizacion->nombre}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
                 </div>
             </div>
 
@@ -31,7 +31,7 @@
                     <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-gray-400 rounded-s-sm ">
                         RUT
                     </span>
-                    <input type="text" id="website-admin" value="{{$organizacion->rut}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                    <input type="text" id="" value="{{$organizacion->rut}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
                 </div>
             </div>
             <div class="flex flex-col col-span-2 sm:col-span-1 ">
@@ -39,7 +39,7 @@
                     <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-gray-400 rounded-s-sm ">
                         ROL MUNICIPAL
                     </span>
-                    <input type="text" id="website-admin" value="{{$organizacion->rol_municipal}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                    <input type="text" id="" value="{{$organizacion->rol_municipal}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
                 </div>
             </div>
             <div class="flex flex-col col-span-2 sm:col-span-1 ">
@@ -47,7 +47,7 @@
                     <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-gray-400 rounded-s-sm ">
                         FECHA CONCESION
                     </span>
-                    <input type="text" id="website-admin" value="{{ \Carbon\Carbon::createFromFormat('Y-m-d', $organizacion->fecha_concesion)->format('d/m/Y') }}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                    <input type="text" id="" value="{{ \Carbon\Carbon::createFromFormat('Y-m-d', $organizacion->fecha_concesion)->format('d/m/Y') }}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
                 </div>
             </div>
             <div class="flex flex-col col-span-2 sm:col-span-1 ">
@@ -55,7 +55,7 @@
                     <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-gray-400 rounded-s-sm ">
                         N° REGISTRO CIVIL
                     </span>
-                    <input type="text" id="website-admin" value="{{$organizacion->n_inscripcion_RC}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                    <input type="text" id="" value="{{$organizacion->n_inscripcion_RC}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
                 </div>
             </div>
             <div class="flex flex-col col-span-2 sm:col-span-1 ">
@@ -63,7 +63,7 @@
                     <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-gray-400 rounded-s-sm ">
                         LUGAR FUNCIONAMIENTO
                     </span>
-                    <input type="text" id="website-admin" value="{{$organizacion->lugar_funcionamiento}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                    <input type="text" id="" value="{{$organizacion->lugar_funcionamiento}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
                 </div>
             </div>
             <div class="flex flex-col col-span-2 sm:col-span-1 ">
@@ -71,7 +71,7 @@
                     <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-gray-400 rounded-s-sm ">
                         ESTATUTO
                     </span>
-                    <input type="text" id="website-admin" value="{{ \Carbon\Carbon::createFromFormat('Y-m-d', $organizacion->estatuto)->format('d/m/Y') }}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                    <input type="text" id="" value="{{ \Carbon\Carbon::createFromFormat('Y-m-d', $organizacion->estatuto)->format('d/m/Y') }}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
                 </div>
             </div>
 
@@ -95,7 +95,7 @@
                         <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-gray-400 rounded-s-sm ">
                             VIGENCIA
                         </span>
-                        <input type="text" id="website-admin" value="{{$directiva->vigencia}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                        <input type="text" id="" value="{{$directiva->vigencia}}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
                     </div>
                 </div>
                 <div class="flex flex-col col-span-2 sm:col-span-1 ">
@@ -103,7 +103,7 @@
                         <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-gray-400 rounded-s-sm ">
                             FECHA DE TERMINO
                         </span>
-                        <input type="text" id="website-admin" value="{{ $directiva->fecha_termino_directiva ? \Carbon\Carbon::createFromFormat('Y-m-d', $directiva->fecha_termino_directiva)->format('d/m/Y') : '' }}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                        <input type="text" id="" value="{{ $directiva->fecha_termino_directiva ? \Carbon\Carbon::createFromFormat('Y-m-d', $directiva->fecha_termino_directiva)->format('d/m/Y') : '' }}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
                     </div>
                 </div>
                 <div class="flex flex-col col-span-1 sm:col-span-2 ">
@@ -111,7 +111,7 @@
                         <span class="inline-flex items-center  p-2.5  text-sm text-gray-900 bg-gray-100 border-t border-l border-r  border-gray-400 rounded-s-sm ">
                             DIRECTIVA
                         </span>
-                        <textarea type="text" id="website-admin" value="" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm ">
+                        <textarea type="text" id="" value="" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm ">
                         {{$directiva->integrantes}}
                         </textarea>
                     </div>
