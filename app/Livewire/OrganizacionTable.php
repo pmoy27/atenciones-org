@@ -52,7 +52,7 @@ final class OrganizacionTable extends PowerGridComponent
     {
         return PowerGrid::fields()
             ->add('id')
-            ->add('fecha_concesion', fn ($model) => Carbon::parse($model->created_at)->format('d/m/Y'))
+            ->add('fecha_concesion', fn ($model) => Carbon::parse($model->fecha_concesion)->format('d/m/Y'))
             ->add('created_at');
     }
 
