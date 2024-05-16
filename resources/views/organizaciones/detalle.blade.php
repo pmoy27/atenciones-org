@@ -103,7 +103,7 @@
                         <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border-l border-t border-b border-gray-400 rounded-s-sm ">
                             FECHA DE TERMINO
                         </span>
-                        <input type="text" id="website-admin" value="{{ \Carbon\Carbon::createFromFormat('Y-m-d', $directiva->fecha_termino_directiva)->format('d/m/Y') }}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
+                        <input type="text" id="website-admin" value="{{ $directiva->fecha_termino_directiva ? \Carbon\Carbon::createFromFormat('Y-m-d', $directiva->fecha_termino_directiva)->format('d/m/Y') : '' }}" disabled readonly class="rounded-none uppercase font-semibold rounded-e-sm bg-white border border-gray-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5">
                     </div>
                 </div>
                 <div class="flex flex-col col-span-1 sm:col-span-2 ">

@@ -13,7 +13,6 @@ class TiposController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
